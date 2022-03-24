@@ -1,14 +1,15 @@
 <template>
   <div class="col">
-    <div class="card">
+    <div class="card text-center">
       <img
         :src="song.poster"
-        class="card-img-top"
+        class="card-img-top p-3"
         :alt="`poster ` + song.title"
       />
       <div class="card-body">
-        <h5 class="card-title">{{ song.title }}</h5>
-        <p class="card-text">{{ song.author }}</p>
+        <h5 class="card-title text-uppercase text-white">{{ song.title }}</h5>
+        <div class="text-secondary">{{ song.author }}</div>
+        <div class="text-secondary">{{ song.year }}</div>
       </div>
     </div>
   </div>
@@ -23,4 +24,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.card {
+  height: 100%;
+  background-color: #2e3a46ff;
+}
+</style>
