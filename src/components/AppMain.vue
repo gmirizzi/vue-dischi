@@ -1,7 +1,9 @@
 <template>
   <main>
     <div class="container">
-      <SongCard />
+      <div class="row row-cols-5">
+        <SongCard />
+      </div>
     </div>
   </main>
 </template>
@@ -34,6 +36,5 @@ export default {
 <style lang="scss" scoped>
 main {
   background-color: #1e2d3bff;
-  color: white;
 }
 </style>
