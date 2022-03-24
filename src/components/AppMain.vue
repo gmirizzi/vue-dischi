@@ -1,7 +1,10 @@
 <template>
   <main class="py-5">
     <div class="container">
-      <div class="row row-cols-5 gy-3">
+      <div v-if="songs == null" class="text-white text-center">
+        LOADING DATA
+      </div>
+      <div v-else class="row row-cols-5 gy-3">
         <SongCard v-for="el in songs" :key="el.poster" :song="el" />
       </div>
     </div>
