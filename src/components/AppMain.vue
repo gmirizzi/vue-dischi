@@ -12,6 +12,11 @@ import axios from "axios";
 
 export default {
   name: "AppMain",
+  data() {
+    return {
+      songs: null,
+    };
+  },
   components: {
     SongCard,
   },
@@ -19,7 +24,8 @@ export default {
     axios
       .get("https://flynn.boolean.careers/exercises/api/array/music")
       .then((response) => {
-        console.log(response.data.response);
+        this.songs = response.data.response;
+        console.log(this.songs);
       });
   },
 };
