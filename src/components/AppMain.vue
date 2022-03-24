@@ -2,7 +2,7 @@
   <main>
     <div class="container">
       <div class="row row-cols-5">
-        <SongCard />
+        <SongCard v-for="el in songs" :key="el.poster" :song="el" />
       </div>
     </div>
   </main>
