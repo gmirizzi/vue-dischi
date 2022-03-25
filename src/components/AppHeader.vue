@@ -2,14 +2,25 @@
   <header class="d-flex justify-content-between align-items-center p-2">
     <img src="./../assets/img/logo-spotify.png" alt="Logo Spotify" />
     <select @change="$emit('filtra', selected)" v-model="selected">
-      <option value="">Seleziona un genere</option>
-      <option
-        v-for="(el, index) in genres"
-        :key="index"
-        :value="el.toLowerCase()"
-      >
-        {{ el }}
-      </option>
+      <option value="">All</option>
+      <optgroup label="Genere">
+        <option
+          v-for="(el, index) in genres"
+          :key="index"
+          :value="el.toLowerCase()"
+        >
+          {{ el }}
+        </option>
+      </optgroup>
+      <optgroup label="Artista">
+        <option
+          v-for="(el, index) in authors"
+          :key="index"
+          :value="el.toLowerCase()"
+        >
+          {{ el }}
+        </option>
+      </optgroup>
     </select>
   </header>
 </template>
@@ -24,6 +35,7 @@ export default {
   },
   props: {
     genres: [],
+    authors: [],
   },
 };
 </script>
