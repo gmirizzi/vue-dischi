@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <AppHeader @filtra="getGenre" :genres="genres" :authors="authors" />
-    <AppMain :selectedGenre="selectedGenre" @populeSelect="populeSongs" />
+    <AppHeader @filtra="getFilter" :genres="genres" :authors="authors" />
+    <AppMain :selectedFilter="selectedFilter" @populeSelect="populeSongs" />
   </div>
 </template>
 
@@ -17,14 +17,14 @@ export default {
   },
   data() {
     return {
-      selectedGenre: "",
+      selectedFilter: "",
       genres: null,
       authors: null,
     };
   },
   methods: {
-    getGenre(selected) {
-      this.selectedGenre = selected;
+    getFilter(selected) {
+      this.selectedFilter = selected;
     },
     populeSongs(arrSongs) {
       this.genres = [...new Set(arrSongs.map((song) => song.genre))].sort();
