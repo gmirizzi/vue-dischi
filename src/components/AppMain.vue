@@ -5,7 +5,7 @@
         LOADING DATA
       </div>
       <div v-else class="row row-cols-5 gy-3">
-        <SongCard v-for="el in songs" :key="el.poster" :song="el" />
+        <SongCard v-for="el in filterByGenre" :key="el.poster" :song="el" />
       </div>
     </div>
   </main>
@@ -24,6 +24,20 @@ export default {
   },
   components: {
     SongCard,
+  },
+  props: {
+    selectedGenre: String,
+  },
+  computed: {
+    filterByGenre() {
+      if (this.selectedGenre == "") {
+        return this.songs;
+      } else {
+        return this.songs.filter(
+          (song) => song.genre.toLowerCase() == this.selectedGenre
+        );
+      }
+    },
   },
   created() {
     axios

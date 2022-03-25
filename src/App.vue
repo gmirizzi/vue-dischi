@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <AppHeader />
-    <AppMain />
+    <AppHeader @filtra="getGenre" />
+    <AppMain :selectedGenre="selectedGenre" />
   </div>
 </template>
 
@@ -14,6 +14,16 @@ export default {
   components: {
     AppHeader,
     AppMain,
+  },
+  data() {
+    return {
+      selectedGenre: "",
+    };
+  },
+  methods: {
+    getGenre(selected) {
+      this.selectedGenre = selected;
+    },
   },
 };
 </script>
