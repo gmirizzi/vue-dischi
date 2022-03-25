@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <AppHeader @filtra="getGenre" :songs="songs" />
+    <AppHeader @filtra="getGenre" :genres="genres" />
     <AppMain :selectedGenre="selectedGenre" @populeSelect="populeSongs" />
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       selectedGenre: "",
-      songs: null,
+      genres: null,
     };
   },
   methods: {
@@ -26,7 +26,7 @@ export default {
       this.selectedGenre = selected;
     },
     populeSongs(arrSongs) {
-      this.songs = arrSongs;
+      this.genres = [...new Set(arrSongs.map((song) => song.genre))].sort();
     },
   },
 };

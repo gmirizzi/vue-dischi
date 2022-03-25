@@ -4,11 +4,11 @@
     <select @change="$emit('filtra', selected)" v-model="selected">
       <option value="">Seleziona un genere</option>
       <option
-        v-for="song in songs"
-        :key="song.poster"
-        :value="song.genre.toLowerCase()"
+        v-for="(el, index) in genres"
+        :key="index"
+        :value="el.toLowerCase()"
       >
-        {{ song.genre }}
+        {{ el }}
       </option>
     </select>
   </header>
@@ -23,7 +23,7 @@ export default {
     };
   },
   props: {
-    songs: [],
+    genres: [],
   },
 };
 </script>
