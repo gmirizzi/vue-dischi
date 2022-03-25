@@ -50,8 +50,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-main {
-  background-color: #1e2d3bff;
-}
-</style>
+<style lang="scss" scoped></style>

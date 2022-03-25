@@ -30,4 +30,8 @@ export default {
 
 <style lang="scss">
 @import "~bootstrap/scss/bootstrap";
+#app {
+  background-color: #1e2d3bff;
+  min-height: 100vh;
+}
 </style>
