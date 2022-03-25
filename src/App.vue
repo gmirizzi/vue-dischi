@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <AppHeader @filtra="getGenre" />
-    <AppMain :selectedGenre="selectedGenre" />
+    <AppHeader @filtra="getGenre" :songs="songs" />
+    <AppMain :selectedGenre="selectedGenre" @populeSelect="populeSongs" />
   </div>
 </template>
 
@@ -18,11 +18,15 @@ export default {
   data() {
     return {
       selectedGenre: "",
+      songs: null,
     };
   },
   methods: {
     getGenre(selected) {
       this.selectedGenre = selected;
+    },
+    populeSongs(arrSongs) {
+      this.songs = arrSongs;
     },
   },
 };

@@ -44,8 +44,8 @@ export default {
       .get("https://flynn.boolean.careers/exercises/api/array/music")
       .then((response) => {
         this.songs = response.data.response;
-        console.log(this.songs);
-      });
+      })
+      .then(() => this.$emit("populeSelect", this.songs));
   },
 };
 </script>

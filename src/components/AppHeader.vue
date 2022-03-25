@@ -3,9 +3,13 @@
     <img src="./../assets/img/logo-spotify.png" alt="Logo Spotify" />
     <select @change="$emit('filtra', selected)" v-model="selected">
       <option value="">Seleziona un genere</option>
-      <option value="rock">Rock</option>
-      <option value="pop">Pop</option>
-      <option value="jazz">Jazz</option>
+      <option
+        v-for="song in songs"
+        :key="song.poster"
+        :value="song.genre.toLowerCase()"
+      >
+        {{ song.genre }}
+      </option>
     </select>
   </header>
 </template>
@@ -17,6 +21,9 @@ export default {
     return {
       selected: "",
     };
+  },
+  props: {
+    songs: [],
   },
 };
 </script>
